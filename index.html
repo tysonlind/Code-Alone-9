@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Post Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <div class="container">
+      <!-- Controls Panel -->
+      <section class="editor-panel">
+          <h2>Create Your Post</h2>
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"/>
+        <label for="imageUpload">Upload Image:</label>
+        <div class="upload-box">
+          <input
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+          />
+          <p class="upload-instructions">
+            Choose an image to display in your post.
+          </p>
+        </div>
+        <label for="postText">Write your post:</label>
+        <textarea
+          id="postText"
+          placeholder="What's on your mind?"
+        ></textarea>
+        <label for="imageStyle">Image Style:</label>
+        <select id="imageStyle">
+          <option value="standard">Standard</option>
+          <option value="full">Full Bleed</option>
+          <option value="rounded">Rounded Corners</option>
+          <option value="circle">Circle Crop</option>
+        </select>
+      </section>
+
+      <!-- Live Preview Panel -->
+      <section class="preview-panel">
+        <h2>Live Preview</h2>
+
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-info">
+              <h3 class="profile-name">User Name</h3>
+              <span class="timestamp">Just now • 🌐</span>
+            </div>
+          </div>
+
+          <p class="post-text">Your post will show here...</p>
+
+          <div class="post-image-container">
+            <img
+              src="https://place.dog/300/200"
+              class="post-image standard"
+              id="previewImage"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+ 
+    <script src="script.js"></script>
+  </body>
+</html>

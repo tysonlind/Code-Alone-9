@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+/* LEFT SIDE (Editor Panel) */
+.editor-panel {
+  width: 40%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.editor-panel h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* ----------------------------- */
+/* CUSTOM TEXT INPUT + TEXTAREA  */
+/* ----------------------------- */
+
+.editor-panel input[type="text"],
+.editor-panel textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  color: #222;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  resize: none;
+}
+
+.editor-panel input[type="text"]:hover,
+.editor-panel textarea:hover {
+  border-color: #b8b8b8;
+  background: #fcfcfc;
+}
+
+.editor-panel input[type="text"]:focus,
+.editor-panel textarea:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2);
+  outline: none;
+}
+
+.editor-panel input[type="text"]::placeholder,
+.editor-panel textarea::placeholder {
+  color: #9b9b9b;
+}
+
+.editor-panel input[type="text"].error,
+.editor-panel textarea.error {
+  border-color: #d93025;
+  box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.25);
+}
+
+/* Dropdown */
+.editor-panel select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* RIGHT SIDE (Live Preview) */
+.preview-panel {
+  flex: 1;
+}
+
+.preview-panel h2 {
+  margin-bottom: 10px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-info .profile-name {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.post-text {
+  font-size: 1rem;
+  margin: 12px 0;
+}
+
+.post-image-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Image Styling Options */
+.post-image.full {
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  margin-right: -16px;
+  border-radius: 0;
+}
+
+.post-image.rounded {
+  border-radius: 18px;
+}
+
+.post-image.circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  .editor-panel {
+    width: 100%;
+  }
+}
+
+/* ----------------------------- */
+/* IMAGE UPLOAD PANEL STYLES     */
+/* ----------------------------- */
+
+.upload-box {
+  border: 2px dashed #c3c3c3;
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.upload-box:hover {
+  background: #f0f0f0;
+  border-color: #888;
+}
+
+.upload-box input[type="file"] {
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.upload-instructions {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* ----------------------------- */
+/* PREVIEW IMAGE FALLBACK / HIDE */
+/* ----------------------------- */
+
+.post-image.hidden {
+  display: none;
+}
+
+.post-image.error {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  border: 2px dashed red;
+}
